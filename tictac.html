@@ -1,10 +1,69 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @HasanAli78682 Sign out
+0
+0 0 HasanAli78682/tic_tac Private
+ Code  Issues 0  Pull requests 0  Projects 0  Insights  Settings
+tic_tac/tictac.html
+afd7913  just now
+@HasanAli78682 HasanAli78682 Update tictac.html
+     
+251 lines (250 sloc)  11.3 KB
 <html>
     <head>
         <title>Tic-Tac game</title>
         <style>
+            *
+            {
+                padding: 0px;
+                margin: 0px;
+            }
+            header
+            {
+                background-color: #3a3d42;
+                padding: 15px;
+            }
+            .container
+            {
+            }
+            input[type="button"]
+            {
+                height: 100px;
+                width: 100px;
+                font-size: 5em;
+                border: none;
+                margin: 2px auto;
+            }
+            input[type="reset"]
+            {
+                height: 50px;
+                width: 100px;
+                font-weight: bold;
+                font-size: 20px;
+                border: none;
+                color: #fff;
+                background-color: aqua;
+                margin-top: 20px;
+            }
+            .tic-tac-sqr
+            {        
+                display: inline-block;
+                margin: 0px auto;
+                margin-top: 50px;
+                box-shadow: 5px 10px 20px #888888;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: #6cb6f5;
+            }
             .win
             {
-                background-color: limegreen;
+                background-color: aqua;
             }
         </style>
     </head>
@@ -14,14 +73,14 @@
         var counter=0;
         function run(button)
         {
-            if(counter==5)
-            alert("Draw!");
             if(Gamewin==1)
             location.reload();
             if(gameOn==0){gameOn=1;vari_assi();}
             if(button.value!= "X" && button.value!="O")
             {
                 counter++;
+                if(counter==5)
+            alert("Draw!");
                 button.value = "X";
                 tic_toc(button);
             }
@@ -185,18 +244,37 @@
         }
     </script>
     <body>
-        <FORM NAME="tic" method="post">
-            <h1 id="hmb" style="text-align: center;color: brown;" >Tic Tac Game</h1>
-            <input type="button" name="1" id="sqr1" value=" " style="height: 50px;width: 50px;" onclick="run(this);">
-            <input type="button" name="2" id="sqr2" value="  " style="height: 50px;width: 50px;" onclick="run(this);">
-            <input type="button" name="3" id="sqr3" value="   " style="height: 50px;width: 50px;" onclick="run(this);"><br>
-            <input type="button" name="4" id="sqr4" value="    " style="height: 50px;width: 50px;" onclick="run(this);">
-            <input type="button" name="5" id="sqr5" value="     " style="height: 50px;width: 50px;" onclick="run(this);">
-            <input type="button" name="6" id="sqr6" value="      " style="height: 50px;width: 50px;" onclick="run(this);"></br>
-            <input type="button" name="7" id="sqr7" value="       " style="height: 50px;width: 50px;" onclick="run(this);">
-            <input type="button" name="8" id="sqr8" value="        " style="height: 50px;width: 50px;" onclick="run(this);">
-            <input type="button" name="9" id="sqr9" value="         " style="height: 50px;width: 50px;" onclick="run(this);">
-        </FORM>
-        <input type="reset" onclick="location.reload()">
+        <header>
+            <h1 id="title" style="text-align: center;color: rgb(51, 134, 230);" >Tic Tac Game</h1>
+        </header>
+        <div class="container">
+            <center>
+            <div class="tic-tac-sqr">
+                <input type="button" name="1" id="sqr1" value=" "  onclick="run(this);">
+                <input type="button" name="2" id="sqr2" value="  "  onclick="run(this);">
+                <input type="button" name="3" id="sqr3" value="   "  onclick="run(this);"><br>
+                <input type="button" name="4" id="sqr4" value="    "  onclick="run(this);">
+                <input type="button" name="5" id="sqr5" value="     "  onclick="run(this);">
+                <input type="button" name="6" id="sqr6" value="      "  onclick="run(this);"></br>
+                <input type="button" name="7" id="sqr7" value="       "  onclick="run(this);">
+                <input type="button" name="8" id="sqr8" value="        "  onclick="run(this);">
+                <input type="button" name="9" id="sqr9" value="         "  onclick="run(this);">
+            </div></center>
+            <center>
+            <input type="reset" onclick="location.reload()"></center>
+        </div>
     </body>
 </html>
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.
