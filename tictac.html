@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <title>Tic-Tac game</title>
+        <style>
+            .tictac{
+                width: 50px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <script>
+        var sqr1,sqr2,sqr3,sqr4,sqr5,sqr6,sqr7,sqr8,sqr9;
+        var gameOn=0;
+        var counter=0;
+        function run(button)
+        {
+            counter++;
+            if(counter==5)
+            alert("Draw!");
+            if(gameOn==0){gameOn=1;vari_assi();}
+            if(button.value!= "X" && button.value!="O")
+            {
+                button.value = "X";
+            }
+            
+            tic_toc(button);
+        }
+        function vari_assi()
+        {
+            sqr1 = document.getElementById("sqr1");
+            sqr2 = document.getElementById("sqr2");
+            sqr3 = document.getElementById("sqr3");
+            sqr4 = document.getElementById("sqr4");
+            sqr5 = document.getElementById("sqr5");
+            sqr6 = document.getElementById("sqr6");
+            sqr7 = document.getElementById("sqr7");
+            sqr8 = document.getElementById("sqr8");
+            sqr9 = document.getElementById("sqr9");
+        }
+        function tic_toc(button)
+        {
+            if(gameOn == 1)
+            {
+                if(button.name=="5")
+                {
+                    sqr1.value = "O";
+                }
+                else
+                {
+                    sqr5.value = "O";
+                }
+                gameOn = 2;
+            }
+            else
+            {
+                var ret = Check();
+                if(ret!="0" && ret!=undefined)
+                {
+                    ret.value = "O";
+                    if(ret.alt=="O")alert("YOU LOST!");
+                }
+                else
+                {
+                    if(sqr2.value!="O" && sqr2.value!="X")sqr2.value = "O";
+                    else if(sqr4.value!="O" && sqr4.value!="X")sqr4.value = "O";
+                    else if(sqr6.value!="O" && sqr6.value!="X")sqr6.value = "O";
+                    else if(sqr8.value!="O" && sqr8.value!="X")sqr8.value = "O";
+                }
+            }
+    }
+        function Check()
+        {
+            defence = 0;
+            if(sqr1.value==sqr2.value || sqr1.value==sqr3.value || sqr2.value==sqr3.value)
+            {
+                if(sqr1.value!="X" && sqr1.value!="O"){sqr1.setAttribute("alt",sqr2.value);if(sqr2.value=="O")return sqr1;else defence=sqr1;}
+                else if(sqr2.value!="X" && sqr2.value!="O"){sqr2.setAttribute("alt",sqr3.value);if(sqr3.value=="O")return sqr2;else defence=sqr2;}
+                else if(sqr3.value!="X" && sqr3.value!="O"){sqr3.setAttribute("alt",sqr2.value);if(sqr2.value=="O")return sqr3;else defence=sqr3;}
+            }
+            if(sqr4.value==sqr5.value || sqr4.value==sqr6.value || sqr5.value==sqr6.value)
+            {
+                if(sqr4.value!="X" && sqr4.value!="O"){sqr4.setAttribute("alt",sqr5.value);if(sqr5.value=="O")return sqr4;else defence=sqr4;}
+                else if(sqr5.value!="X" && sqr5.value!="O"){sqr5.setAttribute("alt",sqr6.value);if(sqr6.value=="O")return sqr5;else defence=sqr5;}
+                else if(sqr6.value!="X" && sqr6.value!="O"){sqr6.setAttribute("alt",sqr5.value);if(sqr5.value=="O")return sqr6;else defence=sqr6;}
+            }
+            if(sqr7.value==sqr8.value || sqr7.value==sqr9.value || sqr8.value==sqr9.value)
+            {
+                if(sqr7.value!="X" && sqr7.value!="O"){sqr7.setAttribute("alt",sqr8.value);if(sqr8.value=="O")return sqr7;else defence=sqr7;}
+                else if(sqr8.value!="X" && sqr8.value!="O"){sqr8.setAttribute("alt",sqr9.value);if(sqr7.value=="O")return sqr8;else defence=sqr8;}
+                else if(sqr9.value!="X" && sqr9.value!="O"){sqr9.setAttribute("alt",sqr8.value);if(sqr8.value=="O")return sqr9;else defence=sqr9;}
+            }
+            if(sqr1.value==sqr4.value || sqr1.value==sqr7.value || sqr4.value==sqr7.value)
+            {
+                if(sqr1.value!="X" && sqr1.value!="O"){sqr1.setAttribute("alt",sqr4.value);if(sqr4.value=="O")return sqr1;else defence=sqr1;}
+                else if(sqr4.value!="X" && sqr4.value!="O"){sqr4.setAttribute("alt",sqr7.value);if(sqr1.value=="O")return sqr4;else defence=sqr4;}
+                else if(sqr7.value!="X" && sqr7.value!="O"){sqr7.setAttribute("alt",sqr4.value);if(sqr4.value=="O")return sqr7;else defence=sqr7;}
+            }
+            if(sqr2.value==sqr5.value || sqr2.value==sqr8.value || sqr5.value==sqr8.value)
+            {
+                if(sqr2.value!="X" && sqr2.value!="O"){sqr2.setAttribute("alt",sqr5.value);if(sqr5.value=="O")return sqr2;else defence=sqr2;}
+                else if(sqr5.value!="X" && sqr5.value!="O"){sqr5.setAttribute("alt",sqr8.value);if(sqr2.value=="O")return sqr5;else defence=sqr5;}
+                else if(sqr8.value!="X" && sqr8.value!="O"){sqr8.setAttribute("alt",sqr5.value);if(sqr5.value=="O")return sqr8;else defence=sqr8;}
+            }
+            if(sqr3.value==sqr6.value || sqr3.value==sqr9.value || sqr6.value==sqr9.value)
+            {
+                if(sqr3.value!="X" && sqr3.value!="O"){sqr3.setAttribute("alt",sqr6.value);if(sqr6.value=="O")return sqr3;else defence=sqr3;}
+                else if(sqr6.value!="X" && sqr6.value!="O"){sqr6.setAttribute("alt",sqr9.value);if(sqr3.value=="O")return sqr6;else defence=sqr6;}
+                else if(sqr9.value!="X" && sqr9.value!="O"){sqr9.setAttribute("alt",sqr6.value);if(sqr6.value=="O")return sqr9;else defence=sqr9;}
+            }
+            if(sqr1.value==sqr5.value || sqr1.value==sqr9.value || sqr5.value==sqr9.value)
+            {
+                if(sqr1.value!="X" && sqr1.value!="O"){sqr1.setAttribute("alt",sqr5.value);if(sqr5.value=="O")return sqr1;else defence=sqr1;}
+                else if(sqr5.value!="X" && sqr5.value!="O"){sqr5.setAttribute("alt",sqr9.value);if(sqr1.value=="O")return sqr5;else defence=sqr5;}
+                else if(sqr9.value!="X" && sqr9.value!="O"){sqr9.setAttribute("alt",sqr5.value);if(sqr5.value=="O")return sqr9;else defence=sqr9;}
+            }
+            if(sqr3.value==sqr5.value || sqr3.value==sqr7.value || sqr5.value==sqr7.value)
+            {
+                if(sqr3.value!="X" && sqr3.value!="O"){sqr3.setAttribute("alt",sqr5.value);if(sqr5.value=="O")return sqr3;else defence=sqr3;}
+                else if(sqr5.value!="X" && sqr5.value!="O"){sqr5.setAttribute("alt",sqr7.value);if(sqr3.value=="O")return sqr5;else defence=sqr5;}
+                else if(sqr7.value!="X" && sqr7.value!="O"){sqr7.setAttribute("alt",sqr5.value);if(sqr5.value=="O")return sqr7;else defence=sqr7;}
+            }
+            return defence;
+        }
+    </script>
+    <body>
+        <FORM NAME="tic" method="post">
+            <h1 id="hmb" style="text-align: center;color: brown;" >Tic Tac Game</h1>
+            <input type="button" name="1" id="sqr1" value=" " class="tictac" onclick="run(this);">
+            <input type="button" name="2" id="sqr2" value="  " class="tictac" onclick="run(this);">
+            <input type="button" name="3" id="sqr3" value="   " class="tictac" onclick="run(this);"><br>
+            <input type="button" name="4" id="sqr4" value="    " class="tictac" onclick="run(this);">
+            <input type="button" name="5" id="sqr5" value="     " class="tictac" onclick="run(this);">
+            <input type="button" name="6" id="sqr6" value="      " class="tictac" onclick="run(this);"></br>
+            <input type="button" name="7" id="sqr7" value="       " class="tictac" onclick="run(this);">
+            <input type="button" name="8" id="sqr8" value="        " class="tictac" onclick="run(this);">
+            <input type="button" name="9" id="sqr9" value="         " class="tictac" onclick="run(this);">
+        </FORM>
+    </body>
+</html>
